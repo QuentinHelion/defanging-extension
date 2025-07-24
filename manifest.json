@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "Defanging by Quentin",
+  "version": "1.0",
+  "description": "Défange les URLs sélectionnées via un raccourci clavier.",
+  "permissions": [
+    "activeTab",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "commands": {
+    "defang-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F"
+      },
+      "description": "Defang l'URL sélectionnée"
+    }
+  },
+  "browser_action": {
+    "default_icon": {
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Defanger la sélection"
+  },
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+} 
